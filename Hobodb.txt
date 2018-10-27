@@ -1,0 +1,157 @@
+MySQL Shell 8.0.12
+
+Copyright (c) 2016, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+
+
+MySQL JS> \sql
+Switching to SQL mode... Commands end with ;
+
+MySQL SQL> \connect --mysql
+MySQL SQL> root@localhost;
+ERROR: Not connected.
+
+MySQL SQL> \connect --mysql root@localhost
+Creating a Classic session to 'root@localhost'
+Please provide the password for 'root@localhost': ****
+Save password for 'root@localhost:3306'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 26
+Server version: 8.0.12 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+
+MySQL [localhost ssl] SQL> create schema hobodb;
+Query OK, 1 row affected (0.1899 sec)
+
+MySQL [localhost ssl] SQL> use hobodb;
+Default schema set to `hobodb`.
+Fetching table and column names from `hobodb` for auto-completion... Press ^C to sto
+p.
+
+MySQL [localhost ssl/hobodb] SQL> create table armor(idArmor int primary key,
+                           -> Armorname varchar(45),
+                           -> ARMR int(11);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that
+ corresponds to your MySQL server version for the right syntax to use near '' at
+ line 3
+
+MySQL [localhost ssl/hobodb] SQL> create table armor(idArmor int primary key , Armo
+rname varchar(45), ARMR int(11));
+Query OK, 0 rows affected (0.5550 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table weapon(idWeapon int primary key,Weapo
+nName varchar(45),
+                           -> WDMG int(11),
+                           -> DIFI int(2);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that
+ corresponds to your MySQL server version for the right syntax to use near '' at
+ line 3
+
+MySQL [localhost ssl/hobodb] SQL> create table weapon(idWeapon int primary key,Weapo
+nName varchar(45), WDMG int(11), DIFI int(2));
+Query OK, 0 rows affected (0.5263 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table tonic(idTonic int primary key,
+                           -> TonicName varchar(45),
+                           -> Effect varchar(45),
+                           -> EffectInt int(11));
+Query OK, 0 rows affected (0.3781 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table item(idItem int primary key,
+                           -> ItenName varchar(45)
+                           -> ,Effect varchar(45));
+Query OK, 0 rows affected (0.3979 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table user(idUser int primary key,
+                           -> Username varchar(45),
+                           -> Password varchar(45));
+Query OK, 0 rows affected (0.4331 sec)
+
+MySQL [localhost ssl/ho]bodb SQL> create table Stats(idStats int primary key,
+                           -> STR int(11),
+                           -> DEX int(11),
+                           -> LCK int(11),
+                           -> CHR int(11),
+                           -> GL int(11));
+Query OK, 0 rows affected (0.6481 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table(idScenario int primary key,
+                           -> ScenarioName varchar(45),
+                           -> Clima varchar(45));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that
+ corresponds to your MySQL server version for the right syntax to use near '(idS
+cenario int primary key,
+ScenarioName varchar(45),
+Clima varchar(45))' at line 1
+
+MySQL [localhost ssl/hobodb] SQL> create table(idScenario int primary key, ScenarioN
+ame varchar(45), Clima varchar(45);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that
+ corresponds to your MySQL server version for the right syntax to use near '(idS
+cenario int primary key, ScenarioName varchar(45), Clima varchar(45)' at line 1
+
+MySQL [localhost ssl/hobodb] SQL> create table Scenario(idScenario int primary key,
+ScenarioName varchar(45), Clima varchar(45);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that
+ corresponds to your MySQL server version for the right syntax to use near '' at
+ line 1
+
+MySQL [localhost ssl/hobodb] SQL> create table Scenario(idScenario int primary key,
+ScenarioName varchar(45), Clima varchar(45));
+Query OK, 0 rows affected (0.3428 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table Inventory(idInv int primary key);
+Query OK, 0 rows affected (0.3287 sec)
+
+
+MySQL [localhost ssl/hobodb] SQL> create table Inventory_has_armor(Inventory_idInv i
+nt primary key,Armor_idArmor int(11);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that
+ corresponds to your MySQL server version for the right syntax to use near '' at
+ line 1
+
+MySQL [localhost ssl/hobodb] SQL> create table Inventory_has_armor(Inventory_idInv i
+nt primary key,Armor_idArmor int(11));
+Query OK, 0 rows affected (0.3498 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table Inventory_has_tonic(Inventory_idInv i
+nt primary key,Armor_idArmor int(11));
+Query OK, 0 rows affected (0.4122 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table Inventory_has_item(Inventory_idInv in
+t primary key,Armor_idArmor int(11));
+Query OK, 0 rows affected (0.3010 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table Inventory_has_weapon(Inventory_idInv
+int primary key,Armor_idArmor int(11));
+Query OK, 0 rows affected (0.3944 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table enemystats(idEnemyStats int primary k
+ey,EDMG int(11),
+                           -> EDEF int(11),
+                           -> EHP int(11),
+                           -> EGL int(11));
+Query OK, 0 rows affected (0.4682 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table enemy(idEnemy int primary key,
+                           -> EnemyName varchar(45),
+                           -> Scenario_idScenario int(11),
+                           -> EnemyStats_idEnemyStats int(11),
+                           -> EnemyDesc varchar(200));
+Query OK, 0 rows affected (0.3887 sec)
+
+MySQL [localhost ssl/hobodb] SQL> create table character(Charname varchar(45),
+                           -> idChar int primary key,
+                           -> HP int(11),
+                           -> DMG int(11),
+                           -> DEF int(11),
+                           -> Difficulty int(11),
+                           -> User_idUser int(11),
+                           -> Stats_idStats int(11),
+                           -> Inventory_idInv int(11),
+                           -> Scenario_idScenario int(11));
