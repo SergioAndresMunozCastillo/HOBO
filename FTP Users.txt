@@ -1,0 +1,11 @@
+domain:
+
+hoboproject.x10host.com
+
+--->FTP users
+
+alexa@hoboproject.x10host.com - contrasena
+sergio@hoboproject.x10host.com - contrasena
+
+usuario1@hoboproject.x10host.com - contrasena ------< Usuario y contraseña
+ftp.hoboproject.x10host.com -----> host
